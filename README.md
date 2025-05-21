@@ -1,4 +1,4 @@
-# Traffic_light_controller_Synthesis
+# Traffic_light_controller_Synthesis 
 
 ## Aim:
 
