@@ -38,6 +38,61 @@ The Liberty files are present in the library path,
 
 • Genus Script file with .tcl file Extension commands are executed one by one to synthesize the netlist.
 
+test bench code
+
+`timescale 1 ns / 1 ps
+
+module TrafficLight_tb();
+
+reg rst, clk;
+wire [2:0] LED_NS, LED_WE;
+
+TrafficLight L(clk, rst, LED_NS, LED_WE);
+
+initial begin 
+clk = 1;
+forever #1 clk = ~clk;
+end
+
+initial begin
+   rst = 1;
+
+#10 rst = 0;
+
+#4000 $finish;
+end
+
+endmodule
+
+traffic light.v :
+
+`timescale 1 ns / 1 ps
+
+module TrafficLight_tb();
+
+reg rst, clk;
+wire [2:0] LED_NS, LED_WE;
+
+TrafficLight L(clk, rst, LED_NS, LED_WE);
+
+initial begin 
+clk = 1;
+forever #1 clk = ~clk;
+end
+
+initial begin
+   rst = 1;
+
+#10 rst = 0;
+
+#4000 $finish;
+end
+
+endmodule
+
+
+
+
 Synthesis RTL Schematic :
 
 ![Screenshot (126)](https://github.com/user-attachments/assets/4284c0b4-2a3e-4a68-a340-166040b050e1)
